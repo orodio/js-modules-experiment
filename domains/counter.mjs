@@ -9,7 +9,7 @@ import {
   handleInit,
   handleTell,
   handleAsk,
-} from "..//proxy/entity.mjs"
+} from "https://unpkg.com/@qvvg/entity@1.0.0/entity.mjs"
 
 export default Entity([
   debug(true),

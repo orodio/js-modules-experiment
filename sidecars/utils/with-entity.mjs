@@ -1,5 +1,5 @@
-import { html, Component } from "../../proxy/html.mjs"
-import { Entity } from "../../proxy/entity.mjs"
+import { html, Component } from "https://unpkg.com/htm@2.1.1/preact/standalone.mjs"
+import { Entity } from "https://unpkg.com/@qvvg/entity@1.0.0/entity.mjs"
 
 export const withEntity = (mods = []) => Comp => {
   const displayName = Comp.displayName || Comp.name || "[sc]"

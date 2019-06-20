@@ -1,4 +1,4 @@
-import { html, render } from "./proxy/html.mjs"
+import { html, render } from "https://unpkg.com/htm@2.1.1/preact/standalone.mjs"
 import Counter from "./comps/counter.mjs"
 
 export const App = html`

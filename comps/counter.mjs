@@ -1,5 +1,5 @@
-import { html } from "../proxy/html.mjs"
-import shh from "../proxy/silence.mjs"
+import { html } from "https://unpkg.com/htm@2.1.1/preact/standalone.mjs"
+import shh from "https://unpkg.com/@qvvg/silence@1.0.0/silence.mjs"
 import counter from "../domains/counter.mjs"
 import withCounter from "../sidecars/with-counter.mjs"
 

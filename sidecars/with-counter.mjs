@@ -1,5 +1,5 @@
+import { debug, handleInit, handleTell } from "https://unpkg.com/@qvvg/entity@1.0.0/entity.mjs"
 import { withEntity } from "./utils/with-entity.mjs"
-import { debug, handleInit, handleTell } from "../proxy/entity.mjs"
 import counter from "../domains/counter.mjs"
 
 export default withEntity([
