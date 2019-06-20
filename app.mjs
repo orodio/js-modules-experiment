@@ -1,5 +1,5 @@
-import { html, render } from "/proxy/html.mjs"
-import Counter from "/comps/counter.mjs"
+import { html, render } from "./proxy/html.mjs"
+import Counter from "./comps/counter.mjs"
 
 export const App = html`
   <div>

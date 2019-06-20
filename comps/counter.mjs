@@ -1,7 +1,7 @@
-import { html } from "/proxy/html.mjs"
-import shh from "/proxy/silence.mjs"
-import counter from "/domains/counter.mjs"
-import withCounter from "/sidecars/with-counter.mjs"
+import { html } from "../proxy/html.mjs"
+import shh from "../proxy/silence.mjs"
+import counter from "../domains/counter.mjs"
+import withCounter from "../sidecars/with-counter.mjs"
 
 const injectedInc = id => counter.tell(id, "inc")
 const injectedDec = id => counter.tell(id, "dec")

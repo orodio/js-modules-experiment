@@ -1,6 +1,6 @@
 import { withEntity } from "./utils/with-entity.mjs"
-import { debug, handleInit, handleTell } from "/proxy/entity.mjs"
-import counter from "/domains/counter.mjs"
+import { debug, handleInit, handleTell } from "../proxy/entity.mjs"
+import counter from "../domains/counter.mjs"
 
 export default withEntity([
   debug(true),
