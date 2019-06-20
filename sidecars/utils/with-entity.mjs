@@ -1,39 +1,7 @@
-import { html, Component } from "https://unpkg.com/htm/preact/standalone.mjs"
-import Entity, {
-  label,
-  debug,
-  config,
-  deps,
-  broadcast,
-  handleInit,
-  handleTell,
-  handleAsk,
-  handleInfo,
-  handleContinue,
-  handleTimeout,
-  handleTerminate,
-  spawn,
-  send,
-} from "./entity.mjs"
+import { html, Component } from "/proxy/html.mjs"
+import { Entity } from "/proxy/entity.mjs"
 
-export {
-  label,
-  debug,
-  config,
-  deps,
-  broadcast,
-  handleInit,
-  handleTell,
-  handleAsk,
-  handleInfo,
-  handleContinue,
-  handleTimeout,
-  handleTerminate,
-  spawn,
-  send,
-}
-
-export default (mods = []) => Comp => {
+export const withEntity = (mods = []) => Comp => {
   const displayName = Comp.displayName || Comp.name || "[sc]"
   const sidecar = Entity(mods)
 

@@ -1,4 +1,5 @@
-import Entity, {
+import {
+  Entity,
   label,
   withName,
   debug,
@@ -8,7 +9,7 @@ import Entity, {
   handleInit,
   handleTell,
   handleAsk,
-} from "../utils/entity.mjs"
+} from "/proxy/entity.mjs"
 
 export default Entity([
   debug(true),

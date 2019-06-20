@@ -4,6 +4,7 @@ body {
   color: var(--fg);
   height: 100%;
   display: grid;
+  font-family: monospace;
 }
 
 #app {
@@ -21,7 +22,15 @@ body {
   display: flex;
 }
 
-button {
+.row {
+  display: flex;
+}
+
+.Counter__Buttons {
+  display: flex;
+}
+
+.Counter__Button {
   color: var(--fg);
   background: transparent;
   border: 2px solid currentColor;
@@ -31,5 +40,19 @@ button {
   font-weight: bold;
   cursor: pointer;
   padding: 0 21px;
-  margin: 0 4px;
+  font-family: inherit;
+}
+
+.Counter__Button + .Counter__Button {
+  margin-left: 8px;
+}
+
+.Counter {
+  margin-right: 13px;
+}
+
+.Counter + .Counter {
+  margin-left: 13px;
+  border-left: 1px dashed var(--kl);
+  padding-left: 13px;
 }
