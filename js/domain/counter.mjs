@@ -1,6 +1,7 @@
 import Entity, {
   label,
   withName,
+  debug,
   config,
   deps,
   broadcast,
@@ -10,9 +11,11 @@ import Entity, {
 } from "../utils/entity.mjs"
 
 export default Entity([
+  debug(true),
+
   label("counter"),
 
-  withName((id, label) => `${id}::${label}`),
+  withName((id, label) => `${label}--${id}`),
 
   config("delta", 1),
 
@@ -30,7 +33,7 @@ export default Entity([
 
   handleTell("subscribe", ({ Ok, broadcast }, state, sub) => {
     state.subs.add(sub)
-    broadcast.count([sub], [state])
+    broadcast.count([sub], state)
     return Ok(state)
   }),
 
@@ -41,13 +44,13 @@ export default Entity([
 
   handleTell("inc", ({ Ok, broadcast, config }, state, delta) => {
     state.count = state.count + (delta || config.delta)
-    broadcast.count(state.subs, [state])
+    broadcast.count(state.subs, state)
     return Ok(state)
   }),
 
-  handleTell("dec", ({ Ok, broadcast, config }, state) => {
+  handleTell("dec", ({ Ok, broadcast, config }, state, delta) => {
     state.count = state.count - (delta || config.delta)
-    broadcast.count(state.subs, [state])
+    broadcast.count(state.subs, state)
     return Ok(state)
   }),
 
