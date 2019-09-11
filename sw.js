@@ -9,6 +9,14 @@ workbox.core.setCacheNameDetails({
 
 workbox.routing.registerRoute("/", new workbox.strategies.CacheFirst());
 workbox.routing.registerRoute(
+  "/js-modules-experiment",
+  new workbox.strategies.CacheFirst()
+);
+workbox.routing.registerRoute(
+  "/js-modules-experiment/",
+  new workbox.strategies.CacheFirst()
+);
+workbox.routing.registerRoute(
   /\.(?:mjs|css|html)$/,
   new workbox.strategies.CacheFirst()
 );
