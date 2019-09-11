@@ -1,5 +1,8 @@
-import { html, render } from "https://unpkg.com/htm@2.1.1/preact/standalone.mjs"
-import Counter from "./app/counter.mjs"
+import {
+  html,
+  render
+} from "https://unpkg.com/htm@2.1.1/preact/standalone.mjs";
+import Counter from "./app/counter.mjs";
 
 export const App = html`
   <div>
@@ -27,6 +30,6 @@ export const App = html`
       <${Counter} counterId="e" />
     </div>
   </div>
-`
+`;
 
-render(App, document.getElementById("ROOT"))
+render(App, document.getElementById("ROOT"));

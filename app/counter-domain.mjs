@@ -8,11 +8,11 @@ import {
   broadcast,
   handleInit,
   handleTell,
-  handleAsk,
-} from "https://unpkg.com/@qvvg/entity@1.0.0/entity.mjs"
+  handleAsk
+} from "https://unpkg.com/@qvvg/entity@1.0.0/entity.mjs";
 
 export default Entity([
-  debug(true),
+  // debug(true),
 
   label("counter"),
 
@@ -21,41 +21,41 @@ export default Entity([
   config("delta", 1),
 
   deps(_ => ({
-    getCount: () => Promise.resolve(15),
+    getCount: id => Promise.resolve(32)
   })),
 
   broadcast("count", state => ({ id: state.id, count: state.count })),
 
   handleInit(async ({ Ok, deps }, id) => {
-    const count = await deps.getCount(id)
-    const subs = new Set()
-    return Ok({ id, subs, count })
+    const count = await deps.getCount(id);
+    const subs = new Set();
+    return Ok({ id, subs, count });
   }),
 
   handleTell("subscribe", ({ Ok, broadcast }, state, sub) => {
-    state.subs.add(sub)
-    broadcast.count([sub], state)
-    return Ok(state)
+    state.subs.add(sub);
+    broadcast.count([sub], state);
+    return Ok(state);
   }),
 
   handleTell("unsubscribe", ({ Ok }, state, sub) => {
-    state.subs.delete(sub)
-    return Ok(state)
+    state.subs.delete(sub);
+    return Ok(state);
   }),
 
   handleTell("inc", ({ Ok, broadcast, config }, state, delta) => {
-    state.count = state.count + (delta || config.delta)
-    broadcast.count(state.subs, state)
-    return Ok(state)
+    state.count = state.count + (delta || config.delta);
+    broadcast.count(state.subs, state);
+    return Ok(state);
   }),
 
   handleTell("dec", ({ Ok, broadcast, config }, state, delta) => {
-    state.count = state.count - (delta || config.delta)
-    broadcast.count(state.subs, state)
-    return Ok(state)
+    state.count = state.count - (delta || config.delta);
+    broadcast.count(state.subs, state);
+    return Ok(state);
   }),
 
   handleAsk("count", ({ Reply }, state) => {
-    return Reply(state.count, state)
-  }),
-])
+    return Reply(state.count, state);
+  })
+]);

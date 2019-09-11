@@ -1,13 +1,20 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <title>Title & Stuff</title>
-    <link rel="dns-prefetch" href="https://unpkg.com">
-    <link rel="stylesheet" href="./index.css">
+    <link rel="dns-prefetch" href="https://unpkg.com" />
+    <link rel="stylesheet" href="./index.css" />
   </head>
   <body>
     <div id="ROOT"></div>
     <script async type="module" src="./index.mjs"></script>
+    <script>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+          const sw = navigator.serviceWorker.register("/sw.js");
+        });
+      }
+    </script>
   </body>
 </html>
