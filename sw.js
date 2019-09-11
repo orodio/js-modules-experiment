@@ -2,9 +2,16 @@ importScripts(
   "https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js"
 );
 
-workbox.routing.registerRoute(/\.mjs$/, new workbox.strategies.CacheFirst());
-workbox.routing.registerRoute(/\.css$/, new workbox.strategies.CacheFirst());
-workbox.routing.registerRoute(/\.html$/, new workbox.strategies.CacheFirst());
+workbox.core.setCacheNameDetails({
+  prefix: "datum",
+  suffix: "v1.0.0"
+});
+
+workbox.routing.registerRoute("/", new workbox.strategies.CacheFirst());
+workbox.routing.registerRoute(
+  /\.(?:mjs|css|html)$/,
+  new workbox.strategies.CacheFirst()
+);
 workbox.routing.registerRoute(
   /^https:\/\/unpkg.com/,
   new workbox.strategies.CacheFirst({
